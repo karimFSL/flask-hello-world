@@ -24,17 +24,3 @@ spec:
             limits:
               cpu: "250m"
               memory: "256Mi"
-
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: flask-app-service
-spec:
-  type: LoadBalancer  # ← Exposé sur Internet
-  selector:
-    app: flask-app
-  ports:
-    - protocol: TCP
-      port: 80          # Port externe
-      targetPort: 5000  # Port du conteneur Flask
